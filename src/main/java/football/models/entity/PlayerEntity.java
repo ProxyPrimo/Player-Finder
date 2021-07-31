@@ -90,7 +90,7 @@ public class PlayerEntity extends BaseEntity {
         this.town = town;
     }
 
-    @OneToOne(mappedBy = "player")
+    @OneToOne
     public StatEntity getStat() {
         return stat;
     }

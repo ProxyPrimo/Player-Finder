@@ -9,6 +9,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
 public class XmlParserImpl implements XmlParser {
+
     @Override
     @SuppressWarnings("unchecked")
     public <T> T parseXml(Class<T> objectClass, String filePath) throws JAXBException {

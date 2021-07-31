@@ -2,7 +2,6 @@ package football.models.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Positive;
 
@@ -12,7 +11,6 @@ public class StatEntity extends BaseEntity {
     private Double shooting;
     private Double passing;
     private Double endurance;
-    private PlayerEntity player;
 
     public StatEntity() {
     }
@@ -45,14 +43,5 @@ public class StatEntity extends BaseEntity {
 
     public void setEndurance(Double endurance) {
         this.endurance = endurance;
-    }
-
-    @OneToOne
-    public PlayerEntity getPlayer() {
-        return player;
-    }
-
-    public void setPlayer(PlayerEntity player) {
-        this.player = player;
     }
 }

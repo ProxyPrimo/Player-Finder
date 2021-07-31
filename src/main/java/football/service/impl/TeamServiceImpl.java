@@ -68,4 +68,9 @@ public class TeamServiceImpl implements TeamService {
 
         return sb.toString().trim();
     }
+
+    @Override
+    public TeamEntity findByName(String name) {
+        return teamRepository.findByName(name);
+    }
 }

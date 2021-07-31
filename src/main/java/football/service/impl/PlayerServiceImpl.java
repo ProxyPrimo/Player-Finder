@@ -22,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 
 @Service
@@ -95,6 +96,26 @@ public class PlayerServiceImpl implements PlayerService {
 
     @Override
     public String exportBestPlayers() {
-        return null;
+        List<PlayerEntity> players = playerRepository
+                .findBestPlayers(
+                        LocalDate.parse("1995-01-01"
+                                , DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                        LocalDate.parse("2003-01-01"
+                                , DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+
+        StringBuilder sb = new StringBuilder();
+        players.forEach(p -> {
+            sb.append(String.format("Player - %s %s" +
+                    "%n\tPosition - %s" +
+                    "%n\tTeam - %s" +
+                    "%n\tStadium - %s" +
+                    "%n%n"
+                    , p.getFirstName()
+                    , p.getLastName()
+                    , p.getPosition()
+                    , p.getTeam().getName()
+                    , p.getTeam().getStadiumName()));
+        });
+        return sb.toString().trim();
     }
 }

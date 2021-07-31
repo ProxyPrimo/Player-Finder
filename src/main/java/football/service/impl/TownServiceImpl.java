@@ -18,7 +18,6 @@ public class TownServiceImpl implements TownService {
 
     public static final String TOWN_FILE = "src/main/resources/files/json/towns.json";
 
-
     private final TownRepository townRepository;
     private final ModelMapper modelMapper;
     private final Gson gson;
@@ -56,5 +55,10 @@ public class TownServiceImpl implements TownService {
             sb.append("Valid Town").append(System.lineSeparator());
         }
         return sb.toString().trim();
+    }
+
+    @Override
+    public TownEntity findByName(String name) {
+        return townRepository.findByName(name);
     }
 }

@@ -11,12 +11,12 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
-    public String readPlayersFileContent()  {
+    public String readPlayersFileContent() {
         return null;
     }
 
     @Override
-    public String importPlayers()  {
+    public String importPlayers() {
         return null;
     }
 
